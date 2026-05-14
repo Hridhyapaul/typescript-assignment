@@ -43,3 +43,30 @@ const user = {
 };
 
 console.log(getProperty(user, "name"));
+
+// ========= Solution 05 =========
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+}
+
+interface ReadableBook extends Book {
+  isRead: boolean;
+}
+
+function toggleReadStatus(book: Book): Book & ReadableBook {
+  return {
+    ...book,
+    isRead: true,
+  };
+}
+
+const myBook: Book = {
+  title: "TypeScript Guide",
+  author: "Jane Doe",
+  publishedYear: 2024,
+};
+
+console.log(toggleReadStatus(myBook));
